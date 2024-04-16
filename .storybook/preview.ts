@@ -2,16 +2,17 @@ import type { Preview } from "@storybook/react";
 import { ThemeProvider } from 'styled-components';
 import { withThemeFromJSXProvider } from '@storybook/addon-themes';
 
-import { lightTheme } from '../src/constants/theme';
+import theme from '../src/constants/theme';
 
 export const decorators = [
     withThemeFromJSXProvider({
         themes: {
-            light: lightTheme,
+            light: theme.light,
         },
         defaultTheme: 'light',
         Provider: ThemeProvider,
-    })];
+    })
+];
 
 const preview: Preview = {
   parameters: {

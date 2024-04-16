@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { StyledVariant } from '@constants/ui';
+import { ButtonProps } from './Button.types';
 
-export const Button = styled.button`
+export const Button = styled.button<ButtonProps>`
   background-color: ${({ theme, $variant, $color }) =>
     $variant === StyledVariant.Outlined ? theme.palette.common.white : theme.palette[$color]?.main};
   color: ${({ theme, $variant, $color }) =>
