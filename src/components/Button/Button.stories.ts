@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Button from './index';
+import Button from './Button';
 
 export const Default: StoryObj<typeof Button> = {
   args: { ...Button.defaultProps, children: 'Button' },
