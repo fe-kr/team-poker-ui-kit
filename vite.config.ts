@@ -17,6 +17,7 @@ export default defineConfig({
       filename: 'ui-kit.js',
       exposes: {
         './Button': './src/components/Button',
+        './Input': './src/components/Input',
         './theme': './src/constants/theme.ts',
       },
       shared: ['react', 'styled-components'],

@@ -4,9 +4,9 @@ import { ButtonProps } from './Button.types';
 
 export const Button = styled.button<ButtonProps>`
   background-color: ${({ theme, $variant, $color }) =>
-    $variant === StyledVariant.Outlined ? theme.palette.common.white : theme.palette[$color]?.main};
+    $variant === StyledVariant.Outlined ? theme.palette.common.white : theme.palette[$color].main};
   color: ${({ theme, $variant, $color }) =>
-    $variant === StyledVariant.Outlined ? theme.palette[$color]?.main : theme.palette.common.white};
+    $variant === StyledVariant.Outlined ? theme.palette[$color].main : theme.palette.common.white};
   padding: ${({ theme, $size, $isRounded }) =>
     `${theme.shape.ratio[$size]}rem ${theme.shape.ratio[$size] * ($isRounded ? 1 : 2)}rem`};
   font-size: ${({ theme, $size }) => `${theme.shape.ratio[$size]}rem`};
@@ -14,7 +14,7 @@ export const Button = styled.button<ButtonProps>`
   border-style: solid;
   border-radius: ${({ theme, $isRounded }) =>
     $isRounded ? theme.shape.border.rounded : theme.shape.border.sm};
-  border-color: ${({ theme, $color }) => theme.palette[$color]?.main};
+  border-color: ${({ theme, $color }) => theme.palette[$color].main};
   text-decoration: none;
   text-transform: uppercase;
   outline: none;
@@ -23,13 +23,13 @@ export const Button = styled.button<ButtonProps>`
 
   &:hover {
     background: ${({ theme, $color }) =>
-      `${theme.palette[$color]?.light} radial-gradient(circle, transparent 1%, ${theme.palette[$color]?.light} 1%) center/15000%`};
-    border-color: ${({ theme, $color }) => theme.palette[$color]?.light};
+      `${theme.palette[$color].light} radial-gradient(circle, transparent 1%, ${theme.palette[$color].light} 1%) center/15000%`};
+    border-color: ${({ theme, $color }) => theme.palette[$color].light};
     color: ${({ theme }) => theme.palette.common.white};
   }
 
   &:active {
-    background-color: ${({ theme, $color }) => theme.palette[$color]?.main};
+    background-color: ${({ theme, $color }) => theme.palette[$color].main};
     background-size: 100%;
     transition: background 0s;
   }
@@ -42,6 +42,6 @@ export const Button = styled.button<ButtonProps>`
   }
 
   &:focus {
-    border-color: ${({ theme, $color }) => theme.palette[$color]?.dark};
+    border-color: ${({ theme, $color }) => theme.palette[$color].dark};
   }
 `;

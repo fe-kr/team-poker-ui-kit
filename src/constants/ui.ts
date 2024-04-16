@@ -13,8 +13,3 @@ export enum StyledSize {
   Medium = 'medium',
   Large = 'large',
 }
-
-export enum StyledPosition {
-  Left = 'left',
-  Right = 'right',
-}
