@@ -4,10 +4,10 @@ import Portal from '../Portal';
 import { FC } from 'react';
 import { DialogProps } from './Dialog.types';
 
-const Dialog: FC<DialogProps> = ({ header, body, $minWidth, portalTargetNode }) => {
-  const closeDialog = useDialogStore(({ closeDialog }) => closeDialog);
+const Dialog: FC<DialogProps> = ({ $minWidth, portalTargetNode }) => {
+  const { dialogParams, closeDialog } = useDialogStore();
 
-  if (!header && !body) {
+  if (!dialogParams?.header && !dialogParams?.body) {
     return null;
   }
 
@@ -15,8 +15,8 @@ const Dialog: FC<DialogProps> = ({ header, body, $minWidth, portalTargetNode }) 
     <Portal domNode={portalTargetNode}>
       <Backdrop onClick={closeDialog} />
       <StyledDialog $minWidth={$minWidth!}>
-        {header && <DialogHeader as={header} />}
-        {body && <DialogBody as={body} />}
+        {dialogParams.header && <DialogHeader as={dialogParams.header} />}
+        {dialogParams.body && <DialogBody as={dialogParams.body} />}
       </StyledDialog>
     </Portal>
   );
