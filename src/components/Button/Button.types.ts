@@ -1,9 +1,10 @@
 import { MouseEvent, ReactNode } from 'react';
+import { StyledVariant, StyledSize, StyledColor } from 'types/ui';
 
 export interface ButtonProps {
-  $variant: 'standard' | 'outlined';
-  $color: 'primary' | 'secondary' | 'success' | 'warning' | 'error';
-  $size: 'small' | 'medium' | 'large';
+  $variant: StyledVariant;
+  $color: StyledColor;
+  $size: StyledSize;
   $isRounded?: boolean;
   disabled?: boolean;
   children?: ReactNode;
