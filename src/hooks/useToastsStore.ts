@@ -1,6 +1,5 @@
 import { create } from 'zustand';
 import { generateId } from '@utils/string';
-import { immer } from 'zustand/middleware/immer';
 import { ReactNode } from 'react';
 import { StyledColor } from 'types/ui';
 
@@ -18,29 +17,23 @@ interface ToastsState {
   deleteToast: (id: string) => void;
 }
 
-export default create<ToastsState>()(
-  immer((set, get) => ({
-    toasts: [],
-    duration: null,
-    setDuration: duration => {
-      set(state => {
-        state.duration = duration;
-      });
-    },
-    addToast: toast =>
-      set(state => {
-        const id = generateId();
-        const { duration, deleteToast } = get();
+export default create<ToastsState>()((set, get) => ({
+  toasts: [],
+  duration: null,
+  setDuration: duration => {
+    set(state => ({ ...state, duration }));
+  },
+  addToast: toast => {
+    const id = generateId();
+    const { duration, deleteToast } = get();
 
-        if (duration) {
-          setTimeout(() => deleteToast(id), duration);
-        }
+    if (duration) {
+      setTimeout(() => deleteToast(id), duration);
+    }
 
-        state.toasts.push({ ...toast, id });
-      }),
-    deleteToast: id =>
-      set(state => {
-        state.toasts = state.toasts.filter(item => item.id !== id);
-      }),
-  })),
-);
+    set(state => ({ ...state, toasts: [...state.toasts, { ...toast, id }] }));
+  },
+  deleteToast: id => {
+    set(state => ({ ...state, toasts: state.toasts.filter(item => item.id !== id) }));
+  },
+}));
