@@ -57,6 +57,6 @@ export const Input = styled.input<Omit<CheckboxProps, 'label'>>`
   }
 
   & ~ .checkbox-label {
-    margin-left: ${({ theme, $size }) => theme.shape.ratio[$size] + 0.5}rem;
+    margin-left: ${({ theme, $size }) => theme.shape.ratio[$size] + 1}rem;
   }
 `;

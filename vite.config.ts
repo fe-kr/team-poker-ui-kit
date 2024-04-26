@@ -28,6 +28,7 @@ export default defineConfig({
         './ToastsContainer': './src/components/ToastsContainer',
         './Chip': './src/components/Chip',
         './Checkbox': './src/components/Checkbox',
+        './Card': './src/components/Card',
         './useDialog': './src/hooks/useDialogStore',
         './useToasts': './src/hooks/useToastsStore',
         './theme': './src/constants/theme.ts',
