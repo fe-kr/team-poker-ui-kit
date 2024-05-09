@@ -18,7 +18,7 @@ export const Card = styled.span<CardProps>`
   font-weight: bold;
 
   &:hover {
-    cursor: pointer;
+    cursor: ${({ $isFlipSide }) => ($isFlipSide ? null : 'pointer')};
     background-color: ${({ theme }) => theme.palette.common.white};
   }
 `;
